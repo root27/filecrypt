@@ -16,7 +16,9 @@ fn main() {
     let content = std::fs::read_to_string(&arg.path).expect("could not read file");
 
 
-    println!("File Content is {}", content);
+    println!("File Content is: ");
+
+    println!("{}", content);
 
     let bytesofcontent = content.as_bytes();
 
@@ -24,4 +26,5 @@ fn main() {
 
     println!("Hash of the file is {:?}", hash);
     
+
 }
