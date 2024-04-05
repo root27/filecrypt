@@ -2,7 +2,9 @@
 
 use clap::{ArgAction, Command};
 use fernet::Fernet;
-use std::{default, fs};
+use std::fs;
+
+use std::io::Write;
 
 
 
@@ -57,6 +59,7 @@ fn main() {
 
                     println!("File encrypted");
 
+
                     println!("Please save the key for decryption: {}", key);
 
                 }
@@ -72,10 +75,32 @@ fn main() {
                         let fernet = Fernet::new(&key).unwrap();
                         
                         let new_content = std::fs::read_to_string(encrypted_file).expect("could not read file");
-                        println!("File content: {}", new_content);
                         let decryption = fernet.decrypt(&new_content).unwrap();
                         let decrypted_content = String::from_utf8(decryption).unwrap();
                         println!("Decrypted content: {}", decrypted_content);
+
+                        print!("Would you like to save the decrypted content to a file? (y/n): ");
+
+                        std::io::stdout().flush().unwrap();
+                        
+
+                        let mut user_input = String::new();
+
+                        std::io::stdin().read_line(&mut user_input).expect("Failed to read line");
+
+                        if user_input.trim() == "y" {
+                            print!("Please provide a name for the file: ");
+
+                            std::io::stdout().flush().unwrap();
+
+                            let mut file_name = String::new();
+                            std::io::stdin().read_line(&mut file_name).expect("Failed to read line");
+                            fs::write(file_name.trim(), decrypted_content).expect("could not write file");
+                            println!("File saved");
+                            return;
+                        }
+
+                        println!("Exiting...");
 
                         return;
                     }
