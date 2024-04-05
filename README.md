@@ -4,17 +4,25 @@ This is a simple CLI tool that encrypts and decrypts files contents.
 
 ## Usage
 
+### Help
+
+```bash
+
+filecrypt --help
+
+```
+
 ### Encrypting a file
 ```bash
 
-fileencrypt --file <file_path> --encrypt
+filecrypt --file <file_path> --encrypt
 
 ```
 
 ### Decrypting a file
 ```bash
 
-fileencrypt --file <file_path> --key <key> --decrypt
+filecrypt --file <file_path> --key <key> --decrypt
 
 ```
 
