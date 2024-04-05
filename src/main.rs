@@ -7,6 +7,21 @@ use std::fs;
 use std::io::Write;
 
 
+fn extract_file_extension(filename: &str) -> &str {
+
+    let mut extension = "";
+    for (i, c) in filename.chars().enumerate() {
+        if c == '.' {
+            extension = &filename[i..];
+        }
+    }
+
+    extension
+
+
+}
+
+
 
 
 fn main() {
@@ -49,6 +64,14 @@ fn main() {
             
             if let Some(path) = cmd.get_one::<String>("file") {
             
+
+                let extension = extract_file_extension(&path);
+
+                if extension != ".txt" {
+                    println!("Only .txt files are supported");
+                    return;
+                }
+
                 if cmd.get_flag("encrypt") {
 
                     let content = std::fs::read_to_string(path).expect("could not read file");
