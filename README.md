@@ -25,5 +25,7 @@ filecrypt --file <file_path> --encrypt
 filecrypt --file <file_path> --key <key> --decrypt
 
 ```
+## Author
 
+Oguzhan Dogan
 
