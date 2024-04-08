@@ -40,13 +40,15 @@ jobs:
             # (required) GitHub token for creating GitHub Releases.
             token: ${{ secrets.ACTION_TOKEN }}
 
+            ref: refs/tags/${{ github.ref }}
+
     upload-assets:
         needs: create-release
         strategy:
             matrix:
                 include:
                     - target: x86_64-unknown-linux-gnu
-                      os: ubuntu-latest
+                      
                       
                     - target: x86_64-apple-darwin
                     
@@ -54,7 +56,7 @@ jobs:
                     
                     
                       
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: taiki-e/upload-rust-binary-action@v1
