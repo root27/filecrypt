@@ -52,21 +52,7 @@ jobs:
                       
                     - target: x86_64-apple-darwin
                       os: macos-latest
-                      command: cargo 
-
-                    - target: aarch64-unknown-linux-gnu
-                      os: ubuntu-latest
-                      command: cross
-
-                    - target: aarch64-apple-darwin
-                      os: macos-latest
-                      command: cross
-
-                    - target: x86_64-pc-windows-gnu
-                      os: windows-latest
-                      command: cargo
-                      
-                  
+                      command: cargo             
                     
         runs-on: ${{ matrix.os }}
         steps:
