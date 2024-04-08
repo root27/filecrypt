@@ -1,6 +1,12 @@
 # File Encryption and Decryption CLI Tool
 
-This is a simple CLI tool that encrypts and decrypts files contents.
+This is a simple CLI tool that encrypts and decrypts files contents. 
+
+## Features
+
+- Encrypts and decrypts files
+
+- Only supports text files
 
 ## Usage
 
