@@ -40,7 +40,7 @@ jobs:
             # (required) GitHub token for creating GitHub Releases.
             token: ${{ secrets.ACTION_TOKEN }}
 
-            ref: refs/tags/${{ github.ref }}
+            ref: refs/tags/v0.1.4
 
     upload-assets:
         needs: create-release
