@@ -19,6 +19,14 @@ cargo install filecrypt
 
 ```
 
+## Homebrew Installation
+
+```bash
+
+brew install root27/tools/filecrypt
+
+```
+
 ## Usage
 
 ### Help
