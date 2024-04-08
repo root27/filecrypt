@@ -21,13 +21,15 @@ pre-build = [
 [target.aarch64-apple-darwin]
 
 pre-build = [
-  "brew install openssl"
+  "dpkg --add-architecture $CROSS_DEB_ARCH",
+  "apt-get update && apt-get --assume-yes install libssl-dev:$CROSS_DEB_ARCH"
 ]
 
 [target.x86_64-windows-gnu]
 
 pre-build = [
-    "choco install openssl"
+  "dpkg --add-architecture $CROSS_DEB_ARCH",
+  "apt-get update && apt-get --assume-yes install libssl-dev:$CROSS_DEB_ARCH"
 ]
 
 
