@@ -1,6 +1,6 @@
 [package]
 name = "filecrypt"
-version = "0.1.0"
+version = "0.1.2"
 edition = "2021"
 repository = "https://github.com/root27/filecrypt"
 description = "Encrypt and decrypt files using Fernet symmetric encryption"
